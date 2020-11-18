@@ -1,0 +1,5 @@
+thpower:
+  keyue-auth:
+    open: true
+    filter: true
+    url: 192.168.11.49:8802/uap/token/v1

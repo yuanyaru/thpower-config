@@ -1,0 +1,10 @@
+server:
+  port: 9001
+management:
+  security:
+    enabled: false
+  endpoint:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #配置刷新端点

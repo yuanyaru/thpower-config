@@ -1,0 +1,67 @@
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 100000
+ribbon:
+  ReadTimeout: 40000
+  ConnectTimeout : 10000
+thpower:
+  database:
+    url: 192.168.100.133:3306
+    username: root
+    password: 123456
+  keyue-auth:
+    open: false
+  servername:
+    # -v1.0
+    producer: thpower-producer-v1.0.0
+    consumer: thpower-consumer-v1.0.0
+
+    dnxtDer: csg-dnxt-der-v1.0.0
+    dnxtDer-1.0.3: csg-dnxt-der-v1.0.3
+    dnxtDer-1.0.4: csg-dnxt-der-v1.0.4
+    dnxtDer-1.0.5: csg-dnxt-der-v1.0.5
+    dnxtDer-1.0.6: csg-dnxt-der-v1.0.6
+    dnxtDer-1.0.7: csg-dnxt-der-v1.0.7
+
+    analyze: csg-dnxt-analyze-v1.0.0
+    analyze-1.0.2: csg-dnxt-analyze-v1.0.2
+    analyze-1.0.3: csg-dnxt-analyze-v1.0.3
+    analyze-1.0.4: csg-dnxt-analyze-v1.0.4
+    analyze-1.0.5: csg-dnxt-analyze-v1.0.5
+    analyze-1.0.6: csg-dnxt-analyze-v1.0.6
+    analyze-1.0.7: csg-dnxt-analyze-v1.0.7
+
+    common: csg-dnxt-common-v1.0.0
+    common-1.0.1: csg-dnxt-common-v1.0.1
+    common-1.0.2: csg-dnxt-common-v1.0.2
+    common-1.0.3: csg-dnxt-common-v1.0.3
+    common-1.0.4: csg-dnxt-common-v1.0.4
+    common-1.0.5: csg-dnxt-common-v1.0.5
+    common-1.0.6: csg-dnxt-common-v1.0.6
+
+    scada: csg-dnxt-scada-v1.0.0
+    scada-1.0.6: csg-dnxt-scada-v1.0.6
+
+    dnxtDerassetsvc-1.0.7: csg-dnxt-derassetsvc-v1.0.7
+    pubInformation-1.0.0: thpower-pubInformation-v1.0.0
+    pubInformation-2.0.0: thpower-pubInformation-v2.0.0
+#链路跟踪服务器
+spring:
+  zipkin:
+    base-url: http://192.168.8.173:9001
+  sleuth:
+    sampler:
+      probability: 1  #收集的百分比，1 = 100%，默认0.1 = 10%
+server:
+  tomcat:
+    #tomcat最大线程数
+    max-threads: 200
+    accept-count: 1000
+    max-connections:  2000

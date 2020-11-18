@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers: 192.168.3.18:9092
+          zkNodes: 192.168.3.18:2181
+    bus:
+      refresh:
+        enabled: true

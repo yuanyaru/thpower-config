@@ -1,0 +1,28 @@
+thpower:
+  keyue-auth:
+    open: false
+    url: 192.168.8.113:8802/uap/token/v1
+  database:
+    url: 192.168.8.175:3306
+    username: root
+    password: 123456
+  servername:
+    # -v1.0
+    producer: thpower-producer-v1.0.0
+
+    consumer: thpower-consumer-v1.0.0
+
+    dnxtDer: csg-dnxt-der-v1.0.0
+
+    analyze: csg-dnxt-analyze-v1.0.0
+
+    common: csg-dnxt-common-v1.0.0
+
+    scada: csg-dnxt-scada-v1.0.0
+#链路跟踪服务器
+spring:
+  zipkin:
+    base-url: http://192.168.8.173:9001
+  sleuth:
+    sampler:
+      probability: 1  #收集的百分比，1 = 100%，默认0.1 = 10%

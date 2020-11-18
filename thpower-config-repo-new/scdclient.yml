@@ -1,0 +1,80 @@
+server:
+  port: 8912
+spring:
+  cloud:
+  #开启bus
+    bus:
+      enabled: true
+  #消息中间件
+#  rabbitmq:
+#    host: 192.168.3.88
+#    port: 5672
+#    username: guest
+#    password: guest
+  #数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${thpower.database.url}/dnxt_scada?characterEncoding=UTF-8&useSSL=false
+    username: ${thpower.database.username}
+    password: ${thpower.database.password}
+      #druid连接池管理
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
+  #链路跟踪服务器
+  zipkin:
+    base-url: http://192.168.3.88:9001
+  sleuth:
+    sampler:
+      probability: 1  #收集的百分比，1 = 100%，默认0.1 = 10%
+#swagger设置
+thpower:
+  swagger:
+    open: true
+    title:  多能监视-供需用户运行监视
+    description: 多能监视-供需用户运行监视后台微服务
+  pagination:
+    pageSize: 20  #分页设置
+  #权限设置
+  oauth2:
+    open: false
+#mybatis
+mybatis:
+  type-aliases-package:  com.thpower.scdclient,com.thpower.scada
+  config-location: classpath:mybatis.xml
+#开启断路器
+feign:
+  hystrix:
+    enabled: true
+#配置刷新端点
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#security:
+#  oauth2:
+#    client:
+#      client-id: SampleClientId
+#      client-secret: secret
+#      accessTokenUri: http://localhost:8081/auth/oauth/token
+#      userAuthorizationUri: http://localhost:8081/auth/oauth/authorize
+#    resource:
+#      userInfoUri: http://localhost:8081/auth/user/me
+security:
+  oauth2:
+    resource:
+      #id: resource
+      user-info-uri: http://192.168.3.75:80/THPISC/user/permissions?sysId=8a81595755e866880155e8ec40050003
+      #userInfoUri: http://localhost:8081/auth/user/me
+      prefer-token-info: false
+#logging:
+#  level:
+    #org.springframework.jdbc.datasource: debug
+    #org.springframework.security : debug
+    #com.thpower: TRACE

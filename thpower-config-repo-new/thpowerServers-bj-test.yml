@@ -1,0 +1,15 @@
+thpower:
+  database:
+    url: 192.168.2.21:30001 
+    username: root
+    password: 123456
+  servername:
+    pubInformation-1.0.0: thpower-pubInformation-v1.0.0
+    pubInformation-2.0.0: thpower-pubInformation-v2.0.0
+#链路跟踪服务器
+spring:
+  zipkin:
+    base-url: http://192.168.2.82:9001
+  sleuth:
+    sampler:
+      probability: 1  #收集的百分比，1 = 100%，默认0.1 = 10%

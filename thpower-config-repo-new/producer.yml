@@ -1,0 +1,20 @@
+server:
+  port: 9010
+management:
+  security:
+    enabled: false
+thpower:
+  user:
+    userName: zhoujundong
+  swagger:
+    open: true
+    title: 生成者服务接口文档
+    description: 测试程序
+spring:
+  zipkin:
+    base-url: http://192.168.3.88:9001  #zipkin分析的地址
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      percentage: 1  #收集的百分比，1 = 100%，默认0.1 = 10%

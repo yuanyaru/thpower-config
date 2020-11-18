@@ -1,0 +1,42 @@
+server:
+  port: 9017
+spring:
+  #数据源配置
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    #jeesite
+    url: jdbc:postgresql://192.168.8.107:5432/CIMDB?charSet=utf-8
+    username: postgres
+    password: 1qaz2wsx
+
+    #druid连接池管理
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
+#swagger设置
+thpower:
+  swagger:
+    open: true
+    title: CIM ATOM
+    description: CIM原子服务(开发)
+  pagination:
+    pageSize: 20  #分页设置
+#mybatis
+mybatis:
+  type-aliases-package:  com.thpower.cim
+  config-location: classpath:mybatis.xml
+
+feign:
+  httpclient:
+    enable: true
+  hystrix:
+    enabled: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #配置刷新端点

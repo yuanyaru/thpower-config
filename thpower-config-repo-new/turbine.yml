@@ -1,0 +1,13 @@
+server:
+  port: 9004
+turbine:
+  app-config: THPOWER-CONSUMER-V1.0.0,THPOWER-PRODUCER-V1.0.0
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+management:
+  endpoint:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #配置刷新端点

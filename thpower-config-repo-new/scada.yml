@@ -1,0 +1,41 @@
+server:
+  port: 8950
+spring:
+  #数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${thpower.database.url}/dnxt_scada?characterEncoding=UTF-8&useSSL=false
+    username: ${thpower.database.username}
+    password: ${thpower.database.password}
+    #druid连接池管理
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
+#swagger设置
+thpower:
+  swagger:
+    open: true
+    title: 多能运行监控
+    description: 多能运行监控原子服务(开发环境)
+  pagination:
+    pageSize: 20  #分页设置
+#mybatis
+mybatis:
+  type-aliases-package:  com.thpower.scada
+  config-location: classpath:mybatis.xml
+
+feign:
+  httpclient:
+    enable: true
+  hystrix:
+    enabled: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #配置刷新端点

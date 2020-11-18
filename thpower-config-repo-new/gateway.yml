@@ -1,0 +1,70 @@
+server:
+  tomcat:
+    #tomcat最大线程数
+    max-threads: 200
+    accept-count: 1000
+    max-connections:  2000
+management:
+  security:
+    enabled: false
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 20MB
+thpower:
+  cors:
+    open: true
+  swagger:
+    open: true
+    title: 网关服务
+    description: 网关服务API
+  oauth2:
+    open: false
+zuul:
+  semaphore:
+    max-semaphores: 5000
+  host:
+    #每个服务的http客户端连接池最大连接，默认是200
+    max-total-connections: 1000
+    #每个route可用的最大连接数，默认值是20
+    max-per-route-connections: 200
+    #设置超时时间，路由方式是url的方式
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  #ignored-headers: "*"
+  ignored-headers: "Access-Control-Allow-Credentials,Access-Control-Allow-Origin"
+  sensitiveHeaders: "*"  # 设置敏感头信息，会传递给后面微服务
+  #限流设置
+  ratelimit:
+    enabled: false
+    behind-proxy: true
+    policies:
+      pro:
+        limit: 5
+        refresh-interval: 60
+        type: USER,ORIGIN
+  add-host-header: true
+
+ribbon:
+  ReadTimeout: 40000
+  ConnectTimeout : 10000
+#设置超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 100000
+#redis数据库设置
+#spring:
+#  redis:
+#    host: 192.168.3.88
+#    database: 8
+#logging:
+#  level:
+#    org.springframework : debug
