@@ -10,13 +10,23 @@ spring:
     url: jdbc:mysql://${thpower.database.url}/hnyw?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: ${thpower.database.username}
     password: ${thpower.database.password}
-
     #druid连接池管理
     druid:
       initial-size: 5
       min-idle: 5
       max-active: 50
-
+  datasource2:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    #jeesite
+    url: jdbc:mysql://192.168.100.133:3306/hisdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: 123456
+    #druid连接池管理
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
 
 #swagger设置
 thpower:
@@ -31,7 +41,7 @@ thpower:
     open: false
 #mybatis
 mybatis:
-  type-aliases-package:  com.thpower.thpoweroperation
+  type-aliases-package: com.thpower.thpoweroperation.entity
   config-location: classpath:mybatis.xml
 #开启断路器
 feign:
@@ -46,15 +56,11 @@ management:
     web:
       exposure:
         include: "*"
-#历史服务接口
-hisUrl: ${hisUrlInfo:http://192.168.100.131:30009}
-#实时服务接口
-snapUrl: ${snapUrlInfo:http://192.168.100.131:30003}
-#查询测点信息
-tagInfoUrl: ${tagInfoUrlInfo:http://192.168.100.131:30005}
-#历史告警
-hisAlarmUrl: ${hisAlarmUrlInfo:http://192.168.100.131:30037}
-#设备信息
-hisDvUrl: ${hisDvUrlInfo:http://192.168.100.131:30038}
+#历史数据统计服务 225济南测试地址  90公网测试地址   90:30009正式地址  30037历史告警服务
+#hisUrl: http://192.168.2.225:9006
+#hisUrl: http://113.128.186.90:9006
+#hisUrl: http://113.128.186.90:30009
+hisUrl: http://192.168.100.131:30010
+hisAlarmUrl: http://192.168.100.131:30037
 #资产框架地址
-assetUrl: ${assetUrlInfo:http://192.168.100.131:30021/}
+assetUrl: http://192.168.100.131:30021/
