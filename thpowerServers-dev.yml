@@ -1,6 +1,6 @@
 thpower:
   database:
-    url: 192.168.100.133:3306
+    url: 192.168.100.183:3306
     username: root
     password: 123456
   keyue-auth:
@@ -30,18 +30,18 @@ spring:
 
 #外部系统定义
 out:
-  userInfourl: ${userInfourl:http://192.168.100.131:30023/userInfo}
+  userInfourl: ${userInfourl:http://192.168.100.181:30023/userInfo}
   #物联-历史库
-  archiveurl: ${archiveurl:http://192.168.100.131:30009/api/arch}
+  archiveurl: ${archiveurl:http://192.168.100.181:30009/api/arch}
   #物联-实时库
-  snapurl: ${snapurl:http://192.168.100.131:30003/api/snap}
+  snapurl: ${snapurl:http://192.168.100.181:30003/api/snap}
   #资产框架
-  asseturl: ${asseturl:http://192.168.100.131:30021/THPISC/api}
+  asseturl: ${asseturl:http://192.168.100.181:30021/THPISC/api}
   #微网设备控制（物联网平台）
-  microgridurl: ${microgridurl:http://192.168.100.131:30038/}
+  microgridurl: ${microgridurl:http://192.168.100.181:30038/}
   #预测
-  prediction: ${microgridurl:http://192.168.100.131:9999/}
+  prediction: ${microgridurl:http://192.168.100.181:9999/}
 
 #运维管理url
 url:
-  operation: ${operation:http://192.168.100.131:30057/v1.0.0/thpower-operation}
+  operation: ${operation:http://192.168.100.181:30057/v1.0.0/thpower-operation}

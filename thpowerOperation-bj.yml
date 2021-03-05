@@ -5,7 +5,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.100.133:3306/thpcloud?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://192.168.100.183:3306/thpcloud?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: 123456
     #druid连接池管理

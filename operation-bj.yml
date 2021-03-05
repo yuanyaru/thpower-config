@@ -19,7 +19,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     #jeesite
-    url: jdbc:mysql://192.168.100.133:3306/hisdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://192.168.100.183:3306/hisdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: 123456
     #druid连接池管理
@@ -60,7 +60,7 @@ management:
 #hisUrl: http://192.168.2.225:9006
 #hisUrl: http://113.128.186.90:9006
 #hisUrl: http://113.128.186.90:30009
-hisUrl: http://192.168.100.131:30010
-hisAlarmUrl: http://192.168.100.131:30037
+hisUrl: http://192.168.100.181:30010
+hisAlarmUrl: http://192.168.100.181:30037
 #资产框架地址
-assetUrl: http://192.168.100.131:30021/
+assetUrl: http://192.168.100.181:30021/

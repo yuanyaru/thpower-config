@@ -3,7 +3,7 @@ thpower:
     open: false
     url: 192.168.8.113:8802/uap/token/v1
   database:
-    url: 192.168.100.133:3306
+    url: 192.168.100.183:3306
     username: root
     password: 123456
   servername:
